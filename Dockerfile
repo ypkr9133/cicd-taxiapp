@@ -1,6 +1,6 @@
 From tomcat:8-jre8 
 MAINTAINER "Vcube"
-COPY ./webapp.war   /usr/local/tomcat/webapps
+COPY ./taxi-booking-1.0.1.war /usr/local/tomcat/webapps
 
 
 
