@@ -22,6 +22,21 @@ environment {
                 sh 'mvn surefire-report:report'
                  echo "----------- unit test Complted ----------"
             }
+        } stage('SonarQube Analysis') {
+            steps {
+                script {
+                    // Run SonarQube analysis
+                    sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=taxi_taxi-app \
+                    -Dsonar.organization=taxi \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.token=${SONAR_TOKEN}
+                    """
+                }
+            }
         }
+
+
 }
 }
